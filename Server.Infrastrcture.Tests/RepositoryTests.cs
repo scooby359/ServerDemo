@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
@@ -13,14 +14,13 @@ namespace Server.Infrastructure.Tests
     [TestFixture]
     public class RepositoryTests
     {
-        private IRepository _repository;
+        private readonly IRepository _repository;
 
-        [SetUp]
-        public void Run()
+        public RepositoryTests()
         {
             var settings = new BookRepositorySettings()
             {
-                ConnectionString = "localhost:27017",
+                ConnectionString = "mongodb://localhost",
                 Collection = "Books",
                 Database = "library"
             };
@@ -29,10 +29,10 @@ namespace Server.Infrastructure.Tests
             mockSettings.Setup(x => x.Value).Returns(settings);
 
             _repository = new Repository(mockSettings.Object);
-
         }
 
         [Test]
+        [Ignore("Manual test")]
         public async Task RepoTest()
         {
             // Setup test book
@@ -79,9 +79,10 @@ namespace Server.Infrastructure.Tests
         
             // Act - test get all
             var listResult = await _repository.GetBooks();
-            Assert.AreEqual(2, listResult.Count);
-            Assert.IsTrue(listResult.Contains(mockBookOne));
-            Assert.IsTrue(listResult.Contains(mockBookTwo));
+            Assert.IsNotNull(listResult);
+            Assert.IsTrue(listResult.Count >= 2);
+            Assert.IsNotNull(listResult.FirstOrDefault(x => x.Id == mockBookOne.Id));
+            Assert.IsNotNull(listResult.FirstOrDefault(x => x.Id == mockBookTwo.Id));
 
             // Test delete
             await _repository.DeleteBook(mockBookOne.Id);
@@ -89,7 +90,8 @@ namespace Server.Infrastructure.Tests
 
             // Assert
             listResult = await _repository.GetBooks();
-            Assert.AreEqual(0, listResult.Count);
+            Assert.IsFalse(listResult.Exists(x => x.Id == mockBookOne.Id));
+            Assert.IsFalse(listResult.Exists(x => x.Id == mockBookTwo.Id));
         }
     }
 }
