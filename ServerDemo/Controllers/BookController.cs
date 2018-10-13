@@ -33,14 +33,14 @@ namespace Server.API.Controllers
             var result = new List<Book>();
 
             if (models == null || models.Count == 0)
-                return Ok(result);
+                return new OkObjectResult(result);
 
             foreach (var model in models)
             {
                 result.Add(MapToModel(model));
             }
 
-            return Ok(result);
+            return new OkObjectResult(result);
 
         }
         
@@ -56,7 +56,7 @@ namespace Server.API.Controllers
             {
                 var model = await _bookService.GetBook(id);
                 var result = MapToModel(model);
-                return Ok(result);
+                return new OkObjectResult(result);
             }
             catch (BookNotFoundException)
             {
@@ -94,7 +94,7 @@ namespace Server.API.Controllers
                 var model = await _bookService.CreateBook(createRequest);
                 var result = MapToModel(model);
 
-                return Ok(result);
+                return new OkObjectResult(result);
             }
             catch (ArgumentNullException e)
             {
