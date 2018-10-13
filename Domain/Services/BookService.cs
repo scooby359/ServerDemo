@@ -74,6 +74,9 @@ namespace Server.Domain.Services
 
             var models = new List<Book>();
 
+            if (entities == null || entities.Count == 0)
+                return models;
+
             foreach (var book in entities)
             {
                 models.Add(MapEntityToModel(book));
@@ -84,9 +87,7 @@ namespace Server.Domain.Services
 
         public async Task UpdateBook(Book model)
         {
-            if (model == null)
-                throw new ArgumentNullException(nameof(model));
-
+         
             var errors = new List<string>();
 
             if (string.IsNullOrWhiteSpace(model.Author))
