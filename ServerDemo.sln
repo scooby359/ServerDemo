@@ -13,7 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4987B93C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server.Infrastructure.Tests", "Server.Infrastrcture.Tests\Server.Infrastructure.Tests.csproj", "{AAB1A5CF-016E-461B-ABB2-5211B644ADBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.Domain.Tests", "Server.Domain.Tests\Server.Domain.Tests.csproj", "{413705A5-1A1B-4B8A-B367-35DFC3BF3C9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server.Domain.Tests", "Server.Domain.Tests\Server.Domain.Tests.csproj", "{413705A5-1A1B-4B8A-B367-35DFC3BF3C9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server.API.Tests", "Server.API.Tests\Server.API.Tests.csproj", "{69D00080-1562-4446-A6DC-0111DCF0BE52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{413705A5-1A1B-4B8A-B367-35DFC3BF3C9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{413705A5-1A1B-4B8A-B367-35DFC3BF3C9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{413705A5-1A1B-4B8A-B367-35DFC3BF3C9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69D00080-1562-4446-A6DC-0111DCF0BE52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69D00080-1562-4446-A6DC-0111DCF0BE52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69D00080-1562-4446-A6DC-0111DCF0BE52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69D00080-1562-4446-A6DC-0111DCF0BE52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{AAB1A5CF-016E-461B-ABB2-5211B644ADBF} = {4987B93C-A67D-4758-9391-AFD688AF270B}
 		{413705A5-1A1B-4B8A-B367-35DFC3BF3C9C} = {4987B93C-A67D-4758-9391-AFD688AF270B}
+		{69D00080-1562-4446-A6DC-0111DCF0BE52} = {4987B93C-A67D-4758-9391-AFD688AF270B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E85A775C-9A1E-4D4B-A7BB-43940DDFCF4A}

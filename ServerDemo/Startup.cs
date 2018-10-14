@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Server.Domain.Services;
 using Server.Infrastructure.Repositories;
 using Server.Infrastructure.Settings;
 
@@ -30,8 +31,9 @@ namespace Server.API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddOptions();
-            services.Configure<IOptions<BookRepositorySettings>>(Configuration.GetSection("RepositorySettings"));
+            services.Configure<BookRepositorySettings>(Configuration.GetSection("RepositorySettings"));
             services.AddTransient<IRepository, Repository>();
+            services.AddTransient<IBookService, BookService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
