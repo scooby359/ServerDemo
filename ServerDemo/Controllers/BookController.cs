@@ -129,9 +129,9 @@ namespace Server.API.Controllers
             {
                 return BadRequest(e);
             }
-            catch (BookNotFoundException e)
+            catch (BookNotFoundException)
             {
-                return NotFound(e);
+                return NotFound();
             }
             catch (Exception e)
             {
@@ -155,9 +155,9 @@ namespace Server.API.Controllers
             {
                 return BadRequest(e);
             }
-            catch (BookNotFoundException e)
+            catch (BookNotFoundException)
             {
-                return NotFound(e);
+                return NotFound();
             }
             catch (Exception e)
             {
