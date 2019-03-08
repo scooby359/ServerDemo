@@ -21,21 +21,21 @@ namespace Server.Domain.Services
         /// <summary>
         /// Gets a book by id
         /// </summary>
-        /// <param name="id">The id to seearch for</param>
-        /// <returns><see cref="Task{Book}"</returns>
+        /// <param name="id">The id to search for</param>
+        /// <returns><see cref="Task{Book}"></see></returns>
         Task<Book> GetBook(string id);
 
         /// <summary>
         /// Gets all books
         /// </summary>
-        /// <returns><see cref="List{Book}"</returns>
+        /// <returns><see cref="List{Book}"></see></returns>
         Task<List<Book>> GetBooks();
 
         /// <summary>
         /// Updates an existing book
         /// </summary>
         /// <param name="model">The book to update</param>
-        /// <returns><see cref="Task"</returns>
+        /// <returns><see cref="Task"></see></returns>
         Task UpdateBook(Book model);
 
         /// <summary>
